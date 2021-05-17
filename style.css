@@ -1,0 +1,240 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --clr-drk-gray-blue: hsl(217, 19%, 35%);
+  --clr-dark-blue: hsl(214, 17%, 51%);
+  --clr-grayish-blue: hsl(212, 23%, 69%);
+  --clr-light-gray-blue: hsl(210, 46%, 95%);
+  --ff: "Manrope", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 20px auto;
+}
+
+.article-wrapper {
+  margin: 20px;
+}
+.card {
+  background-color: white;
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: 0px 6px 16px 0px hsl(217, 19%, 35%);
+  position: relative;
+}
+.card .card-header {
+  width: 100%;
+  height: 100%;
+}
+.card-header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.card .card-content {
+  margin: 1rem 0;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+  padding-bottom: 1.6rem;
+  position: relative;
+}
+
+.card .card-content .card-heading {
+  font-family: var(--ff);
+  color: var(--clr-drk-gray-blue);
+  font-size: 1.4rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.card .card-content .card-descri {
+  color: var(--clr-grayish-blue);
+  font-size: 1rem;
+  font-family: var(--ff);
+  opacity: 0.8;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.user-details {
+  display: flex;
+}
+.user-details img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 1rem;
+  border-radius: 50%;
+}
+
+.user-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user-data h6 {
+  font-family: var(--ff);
+  color: var(--clr-dark-blue);
+  font-family: bold;
+  font-size: 1rem;
+}
+.user-data p {
+  font-family: var(--ff);
+  font-size: 0.9rem;
+  color: var(--clr-grayish-blue);
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 1.2rem;
+  position: relative;
+}
+
+.card-share {
+  width: 50px;
+  height: 50px;
+  background-color: var(--clr-grayish-blue);
+  padding: 1rem;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.active-share {
+  background-color: var(--clr-dark-blue);
+}
+
+.card-share:hover {
+  background-color: var(--clr-dark-blue);
+}
+.card-share img {
+  cursor: pointer;
+  filter: brightness(2) contrast(100%);
+}
+
+.card-footer-overlay {
+  position: absolute;
+  width: 100%;
+  background-color: var(--clr-dark-blue);
+  left: 0;
+  bottom: 0;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5rem;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+  transition: all 0.5s;
+  opacity: 0;
+  z-index: -1;
+}
+
+.card-footer-overlay .tooltip-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 0.6;
+}
+
+.card-footer-overlay .tooltip-content p {
+  color: var(--clr-grayish-blue);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.card-footer-overlay .overlay-action {
+  background-color: var(--clr-drk-gray-blue);
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  padding: 1rem;
+}
+.card-footer-overlay .overlay-action img {
+  filter: brightness(2) contrast(100%);
+}
+
+.tooltip-active {
+  opacity: 1;
+  z-index: 10;
+}
+.tooltip-content > * {
+  margin-left: 1rem;
+}
+
+@media only screen and (min-width: 520px) {
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container {
+    max-width: 900px;
+  }
+  .card {
+    display: flex;
+    flex-direction: row;
+  }
+  .card > * {
+    flex: 1;
+  }
+  .card .card-header {
+    height: auto;
+  }
+  .card .card-header img {
+    border-radius: 10px 0px 0px 10px;
+  }
+  .card .card-content {
+    padding-bottom: 0;
+  }
+  .card-footer-overlay {
+    width: 24%;
+    bottom: 35%;
+    left: 81%;
+    height: 3rem;
+    border-radius: 10px;
+    position: absolute;
+  }
+  .card-footer-overlay::after {
+    position: absolute;
+    content: "";
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: var(--clr-dark-blue) transparent transparent transparent;
+  }
+  .card-footer-overlay .overlay-action {
+    opacity: 0;
+  }
+  .tooltip-content > * {
+    margin-left: 0.4rem;
+  }
+}
